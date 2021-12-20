@@ -1,4 +1,328 @@
-/* variables */
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <title>passgen</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAAEEfUpiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS5SURBVEhLtZddaBxVFMfvnWk2FqNJNlqFvNQHW6MVREEUrXloQ6ugNdnJTt0kpT64r1IEQasuebB9EQUffFh9KGnMNruTrR+IVfTBog0igg+i2QgafCr2I0aU2iY71/85c2d2Z/ajm2T9QZhzP/bMmXPOPfdE1GXUTih6WsnECk/U4K/4O2ux7ISjxfC20E/8XZJHABNnMNinh6IwOxesNXyblRwpG1quC1R8U1ED6BdSSgPqzmJ4wZmds7yVJrCGqA1KiUUnP7dTD70N0U0YuyxYlnUrCxFgz6f0NKSpjvBMBFO6z2uRtdyhxQDLGt5PT/YDtPxKTx+yJxbb+i3JgR8se2RCCjlF8h/nL3b09/ffNDMzsxx2FALkO4eNN8QhKVWfVGo+ny9+zJsihBRUueJPBLNXy4xt29tdsUamyrvv2mVOTk56btoI9CL6JJLZCVbSeiEaiGbg1Y/5/mAFhnAX6dkqUqj7tVjl5WSiJKW4E99ek6IwNyWUHNZDcUNs6+Hp6el/SA45MZPJGD8t/LgGEY4XZwyhjkvpni8L43GhxJuUyrSvw+yMUwhJ3hCDg4NbtLh5gk9IpVK9XV1df2ez2VUaJ5MjTyopH1ZKXoLbpxzHucAbI4QUrJavXlZClRCiymGrAo4ZQkZ+oYdMjQKSy4YaKOaKC7ygQZSmEKUJOPcETvOzetrLgyimK39Op9MdesjgR4ekch+EksP4vL162mNsbOxmLV4XsqQ6a9mCq6tXlnESP+KZ60CW0NMvNayAEsRQ6g2SWwZH3XtoKOO02BJUJ+gZKCirLUFhbwUqMvRkBfDI10K6b5HcEkos+BWK8yCdfqBjeWX7NWTeAeeUU+NMeL6gRQaOHNWiZ0E2+/2qUuoYzPowYScO8EoV8Z6+FOJv+X96mgkdZ1T71xGRl5HOZaGMI6Zc+0wp43ZUoFcwP6S3hS6/wImEky8e7e1eikGch5ffdoVZwmd9hfEeHKrx3u4+Wtsc0RSvCxWMlja2gZAPfSqlQczFu/ueKZVKatu2Ww4iedKYe8QvjVEQSBcZek4o9914z+85Cq5eakhTA/QwgIIrlfgSd/on0lU/+KdnTZi3oVLcB3VPQOMQ6pnJPyCbpDp+z857X210Ea7TAM8jftVthnVw+CnhGieRtlypYMgx51TxKC9WUdeA8fHxG/+9duWEHtYi1WlntjijR00hQ6QyPoBIN91ivGdpV3VoQgaMJkfOKiGX8IMXC4XCuopTM7i/Mt1fKDRUdtAA7dZLlXNIlxgSaDdcNqGMsq2n2wIuxN+oMJCML36U36UJDKAbVIvCFC73j+2EqpIWQ++qGEDXt4bKlxbbRrVOHNfgXZXzjN6BzzGL8iWeayOIPZ8AfodrcGdIBAZw44Ibn2TkwX4U9pO80CYK+eI+quXo/geqm6SaY0gtB2L0OUQ6Nn+hdd2bz5/+zlttDJXuyyuXclCY0FMhGjWUdetAJiPQpSbeg+g3ULBFvY+O6zXO6CbY9tMDuMXOQezxZjzWZUA1uKD3oPy+g7Ds0FOtgbZBSbGEF/D/Uxs2IAr1Y4bhPuQKY4ffGVFWI5kWTbNzPpfLXeSNGj80MbPzuU319P8PQvwHOh7syxilgjwAAAAASUVORK5CYII=">
+    <style>
+
+        /* for width up to 320px*/
+
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
+
+        :root {
+            --red-orange: #F15025;
+            --white: #ffffff;
+            --platinum: #E6E8E6;
+            --light-grey: #CED0CE;
+            --eerie-black: #191919;
+        }
+
+        html {
+            background-color: var(--eerie-black);
+            color: var(--white);
+        }
+
+        body {
+            
+            text-align: center;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin: auto;
+        }
+
+        h1, h2, h3, h4, h5, h6,
+        p {
+            color: var(--white);
+            font-family: 'Merriweather', serif;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 5px;
+        }
+
+        p {
+            font-size: 13px;
+        }
+
+        input, textarea {
+            font-family: 'Merriweather', serif;
+            color: var(--eerie-black);
+            font-size: 12px;
+            background-color: var(--platinum);
+            text-align: center;
+            
+        }
+
+        /* password and passphrase */
+
+        #password,
+        #passphrase {
+            width: 200px;
+        }
+
+        button {
+            color: var(--light-grey);
+            background-color: var(--red-orange);
+            padding: 10px;
+            transition: .5s
+        }
+
+        button img { 
+            max-width: 15px;
+        }
+
+        button:hover {
+            color: var(--eerie-black);
+            background-color: var(--light-grey);
+            transition: .5s
+        }
+
+        .refresh {
+            background: "url(images/refresh.svg)"
+        }
+
+        #main-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        #main-grid section {
+            padding: 0;
+        }
+
+        a,
+        a:visited {
+            color: var(--white);
+            transition: .5s;
+        }
+
+        a:hover {
+            color: var(--red-orange);
+            transition: .5s;
+        }
+
+        /* options */
+
+        #length,
+        #phrase-length {
+            max-width: 50px;
+        }
+
+        #passphrase {
+            resize: none;
+            text-align: center;
+
+        }
+
+        /* wall of entropy */
+
+        #wall {
+            display: block
+        }
+
+        #wall p {
+            font-size: 15px;
+            line-height: 10px;
+        }
+
+        #wall p span {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            text-align: center;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        /* end wall of entropy */
+
+        .instructions {
+            margin-top: 15px;
+            color: white;
+            font-weight: 700;
+        }
+
+        /* counter */
+
+        .grey {
+            color: #777;
+        }
+
+        #keystrokes {
+            font-size: large;
+            color: white;
+        }
+
+        /* Media Query for large views */
+        @media only screen and (min-width: 720px) {
+
+        body {
+            max-width: 100%;
+        }
+
+        #main-grid {
+            margin: auto;
+            max-width: 700px;
+
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            grid-column-gap: 10px;
+        }
+
+        .password-result {
+            max-width: 100%;
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        .passphrase-result {
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+
+        .options {
+            grid-column: 1/2;
+            grid-row: 3/4;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .options h2 {
+            grid-column: 1/-1;
+        }
+
+        #wall {
+            grid-column: 2/3;
+            grid-row: 1/2;
+
+            margin-top: 25px;
+        }
+
+        .how {
+            grid-column: 2/3;
+            grid-row: 2/4;
+        }
+
+        .instructions {
+            grid-column: 1/-1;
+        }
+
+        }
+
+    </style>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/large.css">
+
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>passgen</h1>
+    </header>
+
+    <main>
+    <div id="main-grid">
+
+        <section class="password-result">
+            <h2>Password:</h2>
+            <input id="password" type="text" readonly><br>
+            <button id="generate-password" class="refresh">regen</button>
+            <p>Strong passwords are hard to crack,<br>but also pretty hard to memorize.</p>
+
+        </section>
+
+        <section class="passphrase-result">
+            <h2>Passphrase:</h2>
+            <textarea id="passphrase"
+                rows="3"
+                readonly></textarea><br>
+            <button id="generate-passphrase" class="refresh">regen</button>
+            <p>The best of both worlds: passphrases<br>
+                secure, but easy to remember.</p>
+        </section>
+        
+
+
+        <div id="wall"></div>        
+
+        <div class="instructions">
+            <p>hold down spacebar or swipe across to generate</p>
+            <p>press other keys to generate entropy</p>
+            <p class="grey"><span id="keystrokes">0</span> keystrokes since pageload</P>
+        </div>
+
+        <section class="how">
+            <h3>How does it work?</h3>
+            <p>A pool of <a href="https://en.wikipedia.org/wiki/Pseudorandomness" rel="nofollow">pseudorandom</a> numbers was generated when you loaded this page. When you hold your spacebar on roll your mousewheel over these numbers, some of them are taken out of the pool, these numbers are used to generate passwords and passphrases.</p>
+            <p>When you <span id="faceroll">
+                            <span id="faceroll-0">mash </span>
+                            <span id="faceroll-1">or </span>
+                            <span id="faceroll-2">faceroll </span>
+                            <span id="faceroll-3">your </span>
+                            <span id="faceroll-4">keyboard</span></span>
+                            , your keystrokes generate even more random information that this app can use. We can then use this randomness, or <a href="https://en.wikipedia.org/wiki/Entropy_(computing)" rel="nofollow">entropy</a> to create stronger, more random passwords.
+            </p>
+        </section>
+
+
+        <section class="options">
+            <h2>Options</h2>
+            <fieldset>
+                <legend><h3>password</h3></legend>
+                <label for="length">length (1-32):</label>
+                <input type="number" id="length" value="16">
+                <br>
+                <label for="lowercase">lowercase:</label>
+                <input type="checkbox" id="lowercase" checked>
+                <br>
+                <label for="uppercase">uppercase:</label>
+                <input type="checkbox" id="uppercase" checked>
+                <br>
+                <label for="numbers">numbers:</label>
+                <input type="checkbox" id="numbers" checked>
+                <br>
+                <label for="symbols">symbols:
+                <input type="checkbox" id="symbols" checked>
+            </fieldset>
+            <fieldset>
+                <legend><h3>passphrase</h3></legend>
+                <label for="phrase-length">length (1-10):</label>
+                <input  type="number"
+                        id="phrase-length"
+                        value="4"
+                        min="1"
+                        max="10">                
+            </fieldset>
+        </section>
+
+    </div>
+    </main> 
+ 
+    <footer>
+        <div class="footer-content">
+            <section class="footer-left">
+                <p>Copyright © 2021 NM</p>
+            </section>
+            <section class="footer-right">
+                <p>
+                </p>
+            </section>
+        </div>
+
+        <script>
+            /* variables */
 
 var KEYSTROKE_COUNT = 0
 
@@ -363,3 +687,9 @@ wall.onwheel = anykey_updates
 
 const debug_log = (text) => {if (DEBUG_MODE) {console.log(text)} }
 
+
+        </script>
+    </footer>
+
+</body>
+</html>
