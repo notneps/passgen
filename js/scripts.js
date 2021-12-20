@@ -1,8 +1,8 @@
-/* constants */
-
-
+/* variables */
 
 var KEYSTROKE_COUNT = 0
+
+/* constants */
 
 const MAX_PASSWORD_LENGTH = 32
 const MAX_PASSPHRASE_LENGTH = 10
