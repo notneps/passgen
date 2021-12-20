@@ -4,9 +4,13 @@ var KEYSTROKE_COUNT = 0
 
 /* constants */
 
+/* elements */
+const wallElement = document.getElementById("wall");
+
+/* options */
+
 const MAX_PASSWORD_LENGTH = 32
 const MAX_PASSPHRASE_LENGTH = 10
-
 
 const DEBUG_MODE = false /* turns console log on or off */
 const POOL_COUNT = 4
@@ -92,8 +96,7 @@ const get_random = () => {
 
 const update_wall_of_entropy = () => {
 
-    const wall = document.getElementById("wall")
-    wall.innerHTML = ''
+    wallElement.innerHTML = ''
 
     ENTROPY_POOLS.forEach(array => {
         
@@ -122,7 +125,7 @@ const update_wall_of_entropy = () => {
         }
         
         /* append the <p> to the <div> */
-        wall.appendChild(p)
+        wallElement.appendChild(p)
 });}
 
 const generate_password = () => {
@@ -236,9 +239,6 @@ document.addEventListener("keydown", function(event) {
     /* add the keycode to the entropy pool */
     KEYSTROKE_ENTROPY.push(event.keyCode)
 
-    KEYSTROKE_COUNT = KEYSTROKE_COUNT + 1 
-    document.getElementById("keystrokes").innerHTML = KEYSTROKE_COUNT
-
     if (KEYSTROKE_ENTROPY.length > 100) {
         KEYSTROKE_ENTROPY.shift()
     }
@@ -297,7 +297,12 @@ const roll_right = (array) => {
 }
 
 const incorporate_keystroke_entropy = () => {
-    integer = get_random_element_of(KEYSTROKE_ENTROPY)
+
+    /* get */
+    var integer
+
+    if ( KEYSTROKE_ENTROPY.length > 0 ) { integer = get_random_element_of(KEYSTROKE_ENTROPY) }
+    else { integer = get_random_integer() }
 
     integer = integer + get_random_integer(-10,10)
     if (integer > 99 ) { integer = parseInt(integer / 2) }
@@ -339,6 +344,10 @@ const anykey_updates = () => {
     incorporate_keystroke_entropy()
     morph_pools()
 
+    /* add to counter */
+    KEYSTROKE_COUNT = KEYSTROKE_COUNT + 1 
+    document.getElementById("keystrokes").innerHTML = KEYSTROKE_COUNT
+
     /* output */
     update_wall_of_entropy()
     faceroll_feedback()
@@ -356,10 +365,8 @@ window.onload = () => {
     spacebar_updates()
 }
 
-/* mousewheel */
-
-const wall = document.getElementById("wall")
-wall.onwheel = anykey_updates
+wallElement.onclick = anykey_updates
 
 const debug_log = (text) => {if (DEBUG_MODE) {console.log(text)} }
 
+/* todo */
